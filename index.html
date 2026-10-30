@@ -517,7 +517,9 @@
   <button class="botao-abrir">Toque para abrir 💝</button>
 </div>
 
-<!-- Música: Alicia Keys - If I Ain't Got You (player do YouTube, escondido) -->
+<!-- Música: Alicia Keys - If I Ain't Got You
+     1º tenta o arquivo musica.mp3 (sem anúncios); se não existir, usa o YouTube -->
+<audio id="musica" src="musica.mp3" loop preload="auto"></audio>
 <div id="player-yt"></div>
 <button class="btn-musica" id="btn-musica" title="Nossa música 🎵" style="display:none">
   🎵
@@ -618,13 +620,19 @@
     areaCoracoes.appendChild(c);
   }
 
-  // ---- Música (Alicia Keys - If I Ain't Got You, via YouTube) ----
-  // O iframe é criado no clique de abertura: o gesto do usuário libera o
-  // autoplay com som (funciona inclusive abrindo o arquivo localmente).
+  // ---- Música (Alicia Keys - If I Ain't Got You) ----
+  // Prioridade: arquivo musica.mp3 (sem anúncios). Se não existir ou falhar,
+  // usa o YouTube como reserva. O iframe é criado no clique de abertura:
+  // o gesto do usuário libera o autoplay com som.
   const VIDEO_ID = 'Ju8Hr50Ckwk';
   const btnMusica = document.getElementById('btn-musica');
   const abertura = document.getElementById('abertura');
+  const musicaMp3 = document.getElementById('musica');
+  musicaMp3.volume = 0.7;
+
   let iframeYT = null;
+  let usandoMp3 = false;
+  let musicaIniciada = false;
   let tocando = false;
 
   function comandoYT(func) {
@@ -645,7 +653,7 @@
     btnMusica.innerHTML = '🎵<span class="dica">toque para ouvir nossa música 💕</span>';
   }
 
-  function iniciarMusica() {
+  function iniciarYouTube() {
     if (iframeYT) return;
     iframeYT = document.createElement('iframe');
     iframeYT.src = 'https://www.youtube.com/embed/' + VIDEO_ID +
@@ -658,10 +666,29 @@
     marcarTocando();
   }
 
+  function iniciarMusica() {
+    if (musicaIniciada) return;
+    musicaIniciada = true;
+    musicaMp3.play().then(() => {
+      // musica.mp3 existe e está tocando — sem anúncios!
+      usandoMp3 = true;
+      btnMusica.style.display = 'flex';
+      marcarTocando();
+    }).catch(() => {
+      // arquivo ausente ou formato inválido: usa o YouTube
+      iniciarYouTube();
+    });
+  }
+
   btnMusica.addEventListener('click', () => {
-    if (!iframeYT) { iniciarMusica(); return; }
-    if (tocando) { comandoYT('pauseVideo'); marcarPausado(); }
-    else { comandoYT('playVideo'); marcarTocando(); }
+    if (!musicaIniciada) { iniciarMusica(); return; }
+    if (usandoMp3) {
+      if (tocando) { musicaMp3.pause(); marcarPausado(); }
+      else { musicaMp3.play(); marcarTocando(); }
+    } else {
+      if (tocando) { comandoYT('pauseVideo'); marcarPausado(); }
+      else { comandoYT('playVideo'); marcarTocando(); }
+    }
   });
 
   // Abrir a surpresa: fecha a tela de abertura e inicia a música
