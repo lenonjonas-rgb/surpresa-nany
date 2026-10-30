@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Nany, com todo o nosso amor 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa-claro: #ffe4ec;
+    --rosa: #f8b9cd;
+    --rosa-forte: #e75480;
+    --dourado: #c9a227;
+    --dourado-claro: #e8d28a;
+    --texto: #5a3d49;
+    --branco: #fffaf7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(170deg, #fff0f5 0%, #ffe4ec 35%, #fdf3e3 70%, #ffe9f0 100%);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* Corações flutuantes */
+  .coracoes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .coracao {
+    position: absolute;
+    bottom: -40px;
+    font-size: 18px;
+    opacity: 0;
+    animation: subir linear infinite;
+  }
+  @keyframes subir {
+    0%   { transform: translateY(0) rotate(0deg) scale(.8); opacity: 0; }
+    10%  { opacity: .55; }
+    90%  { opacity: .35; }
+    100% { transform: translateY(-110vh) rotate(25deg) scale(1.15); opacity: 0; }
+  }
+
+  main { position: relative; z-index: 1; }
+
+  /* Capa */
+  .capa {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .capa .pre {
+    font-size: clamp(14px, 2.4vw, 18px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 18px;
+  }
+  .capa h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(64px, 14vw, 140px);
+    font-weight: 400;
+    color: var(--rosa-forte);
+    text-shadow: 0 2px 20px rgba(231, 84, 128, .25);
+    line-height: 1.1;
+  }
+  .capa .sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 3vw, 24px);
+    max-width: 640px;
+    margin-top: 22px;
+    line-height: 1.7;
+  }
+  .capa .seta {
+    margin-top: 48px;
+    font-size: 30px;
+    color: var(--rosa-forte);
+    animation: pulsar 2s ease-in-out infinite;
+    text-decoration: none;
+  }
+  @keyframes pulsar {
+    0%, 100% { transform: translateY(0); opacity: .7; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+
+  /* Seções */
+  section.periodo {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 90px 24px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.1s ease, transform 1.1s ease;
+  }
+  section.periodo.visivel { opacity: 1; transform: translateY(0); }
+
+  .ornamento {
+    color: var(--dourado);
+    font-size: 22px;
+    letter-spacing: 10px;
+    margin-bottom: 14px;
+  }
+  section.periodo h2 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(42px, 8vw, 72px);
+    color: var(--rosa-forte);
+    margin-bottom: 8px;
+  }
+  .desde {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 36px;
+  }
+
+  .contador {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .unidade {
+    background: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(201, 162, 39, .35);
+    border-radius: 18px;
+    padding: 18px 10px;
+    min-width: 104px;
+    box-shadow: 0 8px 24px rgba(231, 84, 128, .12);
+  }
+  .unidade .num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 600;
+    color: var(--rosa-forte);
+    display: block;
+    font-variant-numeric: tabular-nums;
+  }
+  .unidade .rotulo {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-top: 6px;
+    display: block;
+  }
+
+  .texto {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 2.6vw, 21px);
+    line-height: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--texto);
+  }
+  .texto em { color: var(--rosa-forte); }
+
+  .divisor {
+    width: 160px;
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+  }
+
+  /* Molduras de foto */
+  .moldura {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 38px;
+    border-radius: 50%;
+    padding: 7px;
+    background: linear-gradient(135deg, var(--dourado-claro), var(--dourado), var(--dourado-claro));
+    box-shadow: 0 12px 32px rgba(231, 84, 128, .25);
+  }
+  .moldura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    border: 4px solid var(--branco);
+  }
+  .moldura::after {
+    content: '💖';
+    position: absolute;
+    bottom: 4px;
+    right: 10px;
+    font-size: 30px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
+  }
+  .moldura.retrato {
+    width: min(420px, 86vw);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 26px;
+  }
+  .moldura.retrato img { border-radius: 20px; }
+
+  /* Placeholder enquanto a foto não existe */
+  .moldura.vazia img { display: none; }
+  .moldura .placeholder {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--branco);
+    border: 4px solid var(--branco);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 34px;
+  }
+  .moldura.vazia .placeholder { display: flex; }
+  .moldura .placeholder small {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--dourado);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 14px;
+  }
+  .moldura.retrato .placeholder { border-radius: 20px; }
+
+  .selo-casamento {
+    margin-top: 40px;
+    display: inline-block;
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid rgba(201, 162, 39, .4);
+    border-radius: 999px;
+    padding: 14px 30px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--texto);
+    box-shadow: 0 6px 18px rgba(231, 84, 128, .12);
+  }
+  .selo-casamento strong { color: var(--rosa-forte); font-variant-numeric: tabular-nums; }
+
+  /* Final */
+  .final {
+    text-align: center;
+    padding: 100px 24px 130px;
+  }
+  .final .texto { margin-bottom: 40px; }
+  .assinatura {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(30px, 6vw, 46px);
+    color: var(--rosa-forte);
+    line-height: 1.6;
+  }
+  .assinatura span {
+    display: block;
+    font-size: .55em;
+    color: var(--dourado);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 560px) {
+    .unidade { min-width: 86px; padding: 14px 6px; }
+    .contador { gap: 10px; }
+    section.periodo { padding: 70px 18px; }
+  }
+
+  /* Botão de música */
+  .btn-musica {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 10;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 2px solid var(--dourado);
+    background: rgba(255, 255, 255, .9);
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(231, 84, 128, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s ease;
+  }
+  .btn-musica:hover { transform: scale(1.1); }
+  .btn-musica.tocando { animation: girar 4s linear infinite; }
+  @keyframes girar {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .btn-musica .dica {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background: rgba(255, 255, 255, .95);
+    border: 1px solid rgba(201, 162, 39, .4);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--texto);
+    animation: none;
+    pointer-events: none;
+  }
+  .btn-musica.tocando .dica { display: none; }
+
+  /* Tela de abertura */
+  .abertura {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 30px;
+    cursor: pointer;
+    background: linear-gradient(160deg, #fff0f5 0%, #ffd9e6 45%, #fdeccd 100%);
+    transition: opacity 1.2s ease, visibility 1.2s;
+  }
+  .abertura.fechada { opacity: 0; visibility: hidden; pointer-events: none; }
+  .abertura .envelope {
+    font-size: 86px;
+    animation: batida 1.6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 24px rgba(231, 84, 128, .35));
+  }
+  @keyframes batida {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.12); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.08); }
+  }
+  .abertura h3 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(40px, 9vw, 64px);
+    color: var(--rosa-forte);
+  }
+  .abertura p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--texto);
+  }
+  .abertura .botao-abrir {
+    margin-top: 10px;
+    border: 2px solid var(--dourado);
+    background: rgba(255, 255, 255, .85);
+    color: var(--rosa-forte);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 38px;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(231, 84, 128, .25);
+    transition: transform .25s ease;
+  }
+  .abertura .botao-abrir:hover { transform: scale(1.06); }
+
+  /* Player do YouTube escondido (só o áudio importa) */
+  #player-yt {
+    position: fixed;
+    bottom: -9999px;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="coracoes" id="coracoes"></div>
+
+<main>
+
+  <!-- CAPA -->
+  <header class="capa">
+    <p class="pre">Feliz aniversário</p>
+    <h1>Nany</h1>
+    <p class="sub">Uma pequena surpresa, feita com todo o amor do mundo,<br>
+    para celebrar cada segundo da sua existência.</p>
+    <a class="seta" href="#vida" aria-label="Rolar para baixo">❥</a>
+  </header>
+
+  <!-- VIDA -->
+  <section class="periodo" id="vida">
+    <p class="ornamento">✦ ✦ ✦</p>
+    <h2>Sua Vida</h2>
+    <p class="desde">Desde 3 de novembro de 1994</p>
+    <div class="moldura">
+      <img src="fotos/nany.png" alt="Nany" onerror="this.parentElement.classList.add('vazia')">
+      <div class="placeholder">🌸<small>coloque a foto dela em<br>fotos\nany.jpg</small></div>
+    </div>
+    <div class="contador" id="contador-vida"></div>
+    <p class="texto">
+      Há exatamente esse tempo, o mundo ganhou algo que ele nem sabia que precisava: <em>você</em>.
+      Cada segundo que passa nesse contador é um segundo em que o mundo foi mais bonito,
+      mais leve e mais cheio de amor, simplesmente porque você existe.
+      A gente olha pra esses números e não vê apenas tempo — vê risadas, abraços,
+      força nos dias difíceis e luz nos dias comuns.
+      Obrigado por cada instante. Que venham milhões de segundos a mais,
+      e que a gente tenha a sorte de viver todos eles ao seu lado.
+    </p>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- MÃE -->
+  <section class="periodo" id="mae">
+    <p class="ornamento">✦ ✦ ✦</p>
+    <h2>Você, Mãe</h2>
+    <p class="desde">Desde 8 de novembro de 2011</p>
+    <div class="moldura">
+      <img src="fotos/beatriz.png" alt="Beatriz" onerror="this.parentElement.classList.add('vazia')">
+      <div class="placeholder">👧🏻<small>coloque a foto da Beatriz em<br>fotos\beatriz.jpg</small></div>
+    </div>
+    <div class="contador" id="contador-mae"></div>
+    <p class="texto">
+      Nesse dia, nasceu a Beatriz — e junto com ela nasceu a <em>melhor mãe do mundo</em>.
+      Desde então, cada segundo desse contador carrega noites mal dormidas transformadas em canções de ninar,
+      medos transformados em coragem e um amor que não cabe em número nenhum.
+      Ser mãe não é algo que você faz, é algo que você <em>é</em>, em cada gesto, em cada cuidado,
+      em cada "tá tudo bem" dito na hora certa.
+      A Beatriz teve a sorte de nascer dos seus braços — e essa página, aliás, foi ideia dela.
+      Porque filha de um coração gigante só podia ter um coração gigante também.
+    </p>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- NÓS -->
+  <section class="periodo" id="nos">
+    <p class="ornamento">✦ ✦ ✦</p>
+    <h2>Nós Dois</h2>
+    <p class="desde">Desde setembro de 2015, quando nos conhecemos</p>
+    <div class="moldura">
+      <img src="fotos/casal.png" alt="Nós dois" onerror="this.parentElement.classList.add('vazia')">
+      <div class="placeholder">💑<small>coloque a foto de vocês em<br>fotos\casal.jpg</small></div>
+    </div>
+    <div class="contador" id="contador-nos"></div>
+    <p class="texto">
+      Em setembro de 2015 o meu mundo mudou de cor. Eu não sabia ainda, mas naquele momento
+      começava a melhor parte da minha história.
+      Cada segundo desse contador é um segundo em que eu escolhi você — e escolheria de novo,
+      em todas as vidas, em todos os universos.
+      Você me ensinou que amor não é só sentimento: é parceria, é rir junto, é segurar a mão
+      quando o dia aperta, é construir um lar onde a gente sempre quer voltar.
+      E em <em>30 de novembro de 2018</em> eu tive a honra de dizer "sim" para a mulher da minha vida.
+    </p>
+    <div class="selo-casamento">
+      💍 Casados há <strong id="tempo-casados">...</strong>
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+  <!-- FINAL -->
+  <section class="periodo final" id="fim">
+    <p class="ornamento">✦ ✦ ✦</p>
+    <h2>Feliz Aniversário, Amor</h2>
+    <div class="moldura retrato">
+      <img src="fotos/familia.png" alt="Nossa família" onerror="this.parentElement.classList.add('vazia')">
+      <div class="placeholder">👨‍👩‍👧<small>coloque a foto dos três em<br>fotos\familia.jpg</small></div>
+    </div>
+    <p class="texto">
+      Esses contadores nunca vão parar — assim como o nosso amor por você.
+      Que esse novo ano da sua vida seja cheio de tudo aquilo que você entrega ao mundo todos os dias:
+      carinho, alegria, cuidado e amor.
+      Você é a nossa casa, o nosso porto seguro e a nossa maior sorte.
+      <em>Te amamos infinitamente.</em>
+    </p>
+    <p class="assinatura">
+      O Homem mais feliz do mundo &amp; Beatriz
+      <span>com todo o amor que existe em nós 💖</span>
+    </p>
+  </section>
+
+</main>
+
+<!-- Tela de abertura (necessária para a música tocar com som) -->
+<div class="abertura" id="abertura">
+  <div class="envelope">💌</div>
+  <h3>Para Nany</h3>
+  <p>Alguém muito especial preparou uma surpresa para você...</p>
+  <button class="botao-abrir">Toque para abrir 💝</button>
+</div>
+
+<!-- Música: Alicia Keys - If I Ain't Got You (player do YouTube, escondido) -->
+<div id="player-yt"></div>
+<button class="btn-musica" id="btn-musica" title="Nossa música 🎵" style="display:none">
+  🎵
+  <span class="dica">toque para ouvir nossa música 💕</span>
+</button>
+
+<script>
+  // ---- Datas importantes ----
+  const NASCIMENTO = new Date(1994, 10, 3);   // 03/11/1994
+  const MAE        = new Date(2011, 10, 8);   // 08/11/2011
+  const JUNTOS     = new Date(2015, 8, 1);    // setembro de 2015
+  const CASAMENTO  = new Date(2018, 10, 30);  // 30/11/2018
+
+  const UNIDADES = ['anos', 'meses', 'dias', 'horas', 'minutos', 'segundos'];
+  const SINGULAR = { anos: 'ano', meses: 'mês', dias: 'dia', horas: 'hora', minutos: 'minuto', segundos: 'segundo' };
+
+  // Calcula diferença em anos, meses, dias, horas, minutos e segundos (calendário real)
+  function diferenca(desde, ate) {
+    let anos = ate.getFullYear() - desde.getFullYear();
+    let meses = ate.getMonth() - desde.getMonth();
+    let dias = ate.getDate() - desde.getDate();
+    let horas = ate.getHours() - desde.getHours();
+    let minutos = ate.getMinutes() - desde.getMinutes();
+    let segundos = ate.getSeconds() - desde.getSeconds();
+
+    if (segundos < 0) { segundos += 60; minutos--; }
+    if (minutos < 0)  { minutos += 60; horas--; }
+    if (horas < 0)    { horas += 24; dias--; }
+    if (dias < 0) {
+      // dias do mês anterior ao mês de "ate"
+      dias += new Date(ate.getFullYear(), ate.getMonth(), 0).getDate();
+      meses--;
+    }
+    if (meses < 0) { meses += 12; anos--; }
+
+    return { anos, meses, dias, horas, minutos, segundos };
+  }
+
+  function montarContador(container) {
+    UNIDADES.forEach(u => {
+      const div = document.createElement('div');
+      div.className = 'unidade';
+      div.innerHTML = '<span class="num" data-u="' + u + '">0</span><span class="rotulo">' + u + '</span>';
+      container.appendChild(div);
+    });
+  }
+
+  const contadores = [
+    { el: document.getElementById('contador-vida'), desde: NASCIMENTO },
+    { el: document.getElementById('contador-mae'),  desde: MAE },
+    { el: document.getElementById('contador-nos'),  desde: JUNTOS },
+  ];
+  contadores.forEach(c => montarContador(c.el));
+
+  const seloCasados = document.getElementById('tempo-casados');
+
+  function atualizar() {
+    const agora = new Date();
+    contadores.forEach(c => {
+      const d = diferenca(c.desde, agora);
+      c.el.querySelectorAll('.num').forEach(span => {
+        const u = span.dataset.u;
+        span.textContent = d[u];
+        // rótulo singular/plural
+        span.nextElementSibling.textContent = d[u] === 1 ? SINGULAR[u] : u;
+      });
+    });
+
+    const dc = diferenca(CASAMENTO, agora);
+    seloCasados.textContent =
+      dc.anos + (dc.anos === 1 ? ' ano' : ' anos') + ', ' +
+      dc.meses + (dc.meses === 1 ? ' mês' : ' meses') + ' e ' +
+      dc.dias + (dc.dias === 1 ? ' dia' : ' dias');
+  }
+
+  atualizar();
+  setInterval(atualizar, 1000);
+
+  // ---- Revelação ao rolar ----
+  const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visivel');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('section.periodo').forEach(s => observador.observe(s));
+
+  // ---- Corações flutuantes ----
+  const emojis = ['💖', '💕', '🌸', '💗', '✨', '🤍'];
+  const areaCoracoes = document.getElementById('coracoes');
+  for (let i = 0; i < 22; i++) {
+    const c = document.createElement('span');
+    c.className = 'coracao';
+    c.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.fontSize = (12 + Math.random() * 20) + 'px';
+    c.style.animationDuration = (9 + Math.random() * 12) + 's';
+    c.style.animationDelay = (Math.random() * 12) + 's';
+    areaCoracoes.appendChild(c);
+  }
+
+  // ---- Música (Alicia Keys - If I Ain't Got You, via YouTube) ----
+  // O iframe é criado no clique de abertura: o gesto do usuário libera o
+  // autoplay com som (funciona inclusive abrindo o arquivo localmente).
+  const VIDEO_ID = 'Ju8Hr50Ckwk';
+  const btnMusica = document.getElementById('btn-musica');
+  const abertura = document.getElementById('abertura');
+  let iframeYT = null;
+  let tocando = false;
+
+  function comandoYT(func) {
+    if (!iframeYT) return;
+    iframeYT.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: func, args: [] }), '*'
+    );
+  }
+
+  function marcarTocando() {
+    tocando = true;
+    btnMusica.classList.add('tocando');
+    btnMusica.textContent = '🎶';
+  }
+  function marcarPausado() {
+    tocando = false;
+    btnMusica.classList.remove('tocando');
+    btnMusica.innerHTML = '🎵<span class="dica">toque para ouvir nossa música 💕</span>';
+  }
+
+  function iniciarMusica() {
+    if (iframeYT) return;
+    iframeYT = document.createElement('iframe');
+    iframeYT.src = 'https://www.youtube.com/embed/' + VIDEO_ID +
+      '?autoplay=1&loop=1&playlist=' + VIDEO_ID +
+      '&controls=0&disablekb=1&rel=0&enablejsapi=1';
+    iframeYT.allow = 'autoplay; encrypted-media';
+    iframeYT.setAttribute('title', 'Nossa música');
+    document.getElementById('player-yt').appendChild(iframeYT);
+    btnMusica.style.display = 'flex';
+    marcarTocando();
+  }
+
+  btnMusica.addEventListener('click', () => {
+    if (!iframeYT) { iniciarMusica(); return; }
+    if (tocando) { comandoYT('pauseVideo'); marcarPausado(); }
+    else { comandoYT('playVideo'); marcarTocando(); }
+  });
+
+  // Abrir a surpresa: fecha a tela de abertura e inicia a música
+  abertura.addEventListener('click', () => {
+    abertura.classList.add('fechada');
+    iniciarMusica();
+  });
+</script>
+
+</body>
+</html>
